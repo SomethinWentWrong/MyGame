@@ -1,6 +1,6 @@
 ﻿namespace MyGame
 {
-    partial class Form1
+    partial class FormGame
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -150,7 +150,7 @@
             this.pictureBox10.TabIndex = 10;
             this.pictureBox10.TabStop = false;
             // 
-            // Form1
+            // FormGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -165,8 +165,9 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
+            this.Name = "FormGame";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FormGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

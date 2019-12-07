@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0DB296D5-BCCC-4F73-B8D7-D38861F9A62E}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>MyGame</RootNamespace>
-    <AssemblyName>MyGame</AssemblyName>
+    <ProjectGuid>{B4180381-9B2E-45E3-A874-78D73CFA0491}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CardFactory</RootNamespace>
+    <AssemblyName>CardFactory</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,53 +30,54 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>C:\Users\Димон\Desktop\Рабочие картинки\VS projects\MyGame\CardFactory\Resources.resx</Win32Resource>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormGame.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormGame.Designer.cs">
-      <DependentUpon>FormGame.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMenu.Designer.cs">
-      <DependentUpon>FormMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Level.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormGame.resx">
-      <DependentUpon>FormGame.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormMenu.resx">
-      <DependentUpon>FormMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
+    <Compile Include="CardFactory.cs" />
+    <Compile Include="CardResource.Designer.cs">
       <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CardResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <EmbeddedResource Include="CardResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CardResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Syr Alin.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Syr Carah.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Syr Elenora.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Syr Faren.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Syr Konrad.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Рубашка.JPG" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Beast.JPG" />
@@ -90,22 +89,10 @@
     <None Include="Resources\Giant.JPG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Syr Elenora.JPG" />
+    <None Include="Resources\Rankle.JPG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Syr Faren.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Syr Alin.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Syr Carah.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Syr Konrad.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Рубашка.JPG" />
+    <None Include="Resources\Robber.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
