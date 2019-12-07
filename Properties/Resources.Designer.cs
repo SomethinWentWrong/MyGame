@@ -63,6 +63,16 @@ namespace MyGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CardBack {
+            get {
+                object obj = ResourceManager.GetObject("CardBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Syr_Alin {
             get {
                 object obj = ResourceManager.GetObject("Syr_Alin", resourceCulture);
