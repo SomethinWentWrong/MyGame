@@ -30,9 +30,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <Win32Resource>C:\Users\Димон\Desktop\Рабочие картинки\VS projects\MyGame\CardFactory\Resources.resx</Win32Resource>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,6 +49,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CardResource.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -59,6 +57,7 @@
     <EmbeddedResource Include="CardResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CardResource.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +92,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Robber.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ajani.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bontu.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chandra.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ilharg.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kefnet.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mu Yanling.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Oketra.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rhonas.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sorin.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vivien.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,17 +8,20 @@ using System.Windows.Forms;
 
 namespace CardFactory
 {
-    public class CardFactory
+    public static class CardFactory
     {
-        public List<Bitmap> GetCards(int cardsCount)
+        public static List<Bitmap> GetCards(int cardsCount)
         {
             List<Bitmap> result = new List<Bitmap>();
             for (int i = 0; i < cardsCount; i++)
             {
                 result.Add((Bitmap)(CardResource.ResourceManager.GetObject("Card" + i.ToString())));
             }
-            result.Add(CardResource.CardBack);
             return result;
+        }
+        public static Bitmap GetCardBack()
+        {
+            return CardResource.CardBack;
         }
     }
 }

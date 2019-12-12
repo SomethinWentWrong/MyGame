@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormGame.cs">
+    <Compile Include="FormEasyGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGame.Designer.cs">
-      <DependentUpon>FormGame.cs</DependentUpon>
+    <Compile Include="FormEasyGame.Designer.cs">
+      <DependentUpon>FormEasyGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHardGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHardGame.Designer.cs">
+      <DependentUpon>FormHardGame.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
@@ -58,14 +64,28 @@
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameHandler.cs" />
+    <Compile Include="GameState.cs" />
     <Compile Include="Level.cs" />
+    <Compile Include="FormNormalGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNormalGame.Designer.cs">
+      <DependentUpon>FormNormalGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormGame.resx">
-      <DependentUpon>FormGame.cs</DependentUpon>
+    <EmbeddedResource Include="FormEasyGame.resx">
+      <DependentUpon>FormEasyGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHardGame.resx">
+      <DependentUpon>FormHardGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNormalGame.resx">
+      <DependentUpon>FormNormalGame.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -81,31 +101,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Beast.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Borrower.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Giant.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Syr Elenora.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Syr Faren.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Syr Alin.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Syr Carah.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Syr Konrad.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Рубашка.JPG" />
+    <ProjectReference Include="CardFactory\CardFactory.csproj">
+      <Project>{b4180381-9b2e-45e3-a874-78d73cfa0491}</Project>
+      <Name>CardFactory</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

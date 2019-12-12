@@ -69,6 +69,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxLevels);
             this.Name = "FormMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMenu";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -30,9 +30,32 @@ namespace MyGame
                 return;
             }
             Level selectedLevel = (Level)Enum.Parse(typeof(Level), comboBoxLevels.SelectedItem.ToString());
-            FormGame formGame = new FormGame(selectedLevel);
-            formGame.Show();
-            this.Close();
+            Form gameForm;
+            switch (selectedLevel)
+            {
+                case Level.Easy:
+                    {
+                        gameForm = new FormEasyGame();
+                        break;
+                    }
+                case Level.Normal:
+                    {
+                        gameForm = new FormNormalGame();
+                        break;
+                    }
+                case Level.Hard:
+                    {
+                        gameForm = new FormHardGame();
+                        break;
+                    }
+                default:
+                    {
+                        MessageBox.Show("Wrong level!");
+                        return;
+                    }
+            }
+            gameForm.Show();
+            //this.Close();
         }
     }
 }
