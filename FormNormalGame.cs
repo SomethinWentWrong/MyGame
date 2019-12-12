@@ -15,6 +15,11 @@ namespace MyGame
         public FormNormalGame()
         {
             InitializeComponent();
+        }
+        GameHandler gameHandler { get; set; }
+        private List<PictureBox> PictureBoxesNormal { get; set; }
+        private void FormNormalGame_Load(object sender, EventArgs e)
+        {
             PictureBoxesNormal = new List<PictureBox>
             {
                 pictureBox1,
@@ -38,8 +43,34 @@ namespace MyGame
                 pictureBox19,
                 pictureBox20
             };
+            gameHandler = new GameHandler(PictureBoxesNormal, Level.Normal);
+            gameHandler.SetPairs();
+            gameHandler.ShowAllCards();
+            TimerNormal.Start();
         }
-        private List<PictureBox> PictureBoxesNormal { get; set; }
+        private void TimerNormal_Tick(object sender, EventArgs e)
+        {
+            gameHandler.FillBoxesWithCardBacks();
+            TimerNormal.Stop();
+        }
 
+        private void pictureBoxes_Click(object sender, EventArgs e)
+        {
+            bool hasWon = false;
+            Task task = new Task(() =>
+            {
+                hasWon = gameHandler.HandlePictureBoxClick((PictureBox)sender);
+                if (hasWon)
+                {
+                    EndGame();
+                }
+            });
+            task.Start();
+        }
+        private void EndGame()
+        {
+            MessageBox.Show("You have won!");
+            this.Close();
+        }
     }
 }

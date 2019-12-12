@@ -106,6 +106,7 @@ namespace MyGame
                 return false;
             }
             PictureBoxes[clickedPictureBoxIndex].BackgroundImage = Pictures[CardMap[clickedPictureBoxIndex]];
+            clickedPicturebox.Enabled = false;
             pictureIndexToCompare = CardMap[clickedPictureBoxIndex];
             indexRemovedPicturebox = clickedPictureBoxIndex;
             CurrentGameState = GameState.OneCardOpen;
@@ -114,6 +115,7 @@ namespace MyGame
         private bool OpenTwoAndCompare(PictureBox clickedPicturebox) 
         {
             int clickedPictureBoxIndex = -1;
+            EnableAllPictureBoxes();
             for (int i = 0; i < PictureBoxes.Count; i++)
             {
                 if (PictureBoxes[i] == clickedPicturebox)
@@ -147,6 +149,13 @@ namespace MyGame
             }
             CurrentGameState = GameState.AllCardsClosed;
             return false;
+        }
+        private void EnableAllPictureBoxes()
+        {
+            foreach (PictureBox picturebox in PictureBoxes)
+            {
+                picturebox.Enabled = true;
+            }
         }
     }
 }

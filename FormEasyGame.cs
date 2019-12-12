@@ -16,24 +16,6 @@ namespace MyGame
         public FormEasyGame()
         {
             InitializeComponent();
-            //PictureBoxesEasy = new List<PictureBox>
-            //{
-            //    pictureBox1,
-            //    pictureBox2,
-            //    pictureBox3,
-            //    pictureBox4,
-            //    pictureBox5,
-            //    pictureBox6,
-            //    pictureBox7,
-            //    pictureBox8,
-            //    pictureBox9,
-            //    pictureBox10
-            //};
-            //gameHandler = new GameHandler(PictureBoxesEasy, Level.Easy);
-            //Task task = new Task(() => { gameHandler.FillBoxesWithCardBacks(); });
-            //task.Start();
-
-
         }
         GameHandler gameHandler { get; set; } 
         public List<PictureBox> PictureBoxesEasy { get; set; }

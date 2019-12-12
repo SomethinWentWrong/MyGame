@@ -175,7 +175,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "FormEasyGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormEasyGame";
+            this.Text = "Find pair game, level easy";
             this.Load += new System.EventHandler(this.FormEasyGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
