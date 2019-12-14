@@ -87,11 +87,16 @@ namespace MyGame
                     {
                         return OpenTwoAndCompare(clickedPicturebox);
                     }
+                case GameState.HandlerBlocked:
+                    {
+                        return false;
+                    }
                 default: throw new Exception("Wrong game state!");
             }
         }
         private bool OpenCard(PictureBox clickedPicturebox)
         {
+            CurrentGameState = GameState.HandlerBlocked;
             int clickedPictureBoxIndex = -1;
             for (int i = 0; i < PictureBoxes.Count; i++)
             {
@@ -114,6 +119,7 @@ namespace MyGame
         }
         private bool OpenTwoAndCompare(PictureBox clickedPicturebox) 
         {
+            CurrentGameState = GameState.HandlerBlocked;
             int clickedPictureBoxIndex = -1;
             EnableAllPictureBoxes();
             for (int i = 0; i < PictureBoxes.Count; i++)

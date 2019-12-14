@@ -10,6 +10,6 @@ namespace MyGame
     {
         AllCardsClosed,
         OneCardOpen,
-        TwoCardsOpen
+        HandlerBlocked
     }
 }
