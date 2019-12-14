@@ -132,9 +132,7 @@ namespace MyGame
             Task.Delay(1000).Wait();
             if (pictureIndexToCompare == CardMap[clickedPictureBoxIndex])
             {
-                PictureBoxes[clickedPictureBoxIndex].Enabled = false;
                 PictureBoxes[clickedPictureBoxIndex].Visible = false;
-                PictureBoxes[indexRemovedPicturebox].Enabled = false;
                 PictureBoxes[indexRemovedPicturebox].Visible = false;
                 countOpenedPictureboxes = countOpenedPictureboxes - 2;
                 if(countOpenedPictureboxes == 0)
