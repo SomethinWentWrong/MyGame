@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MyGame
@@ -62,9 +56,9 @@ namespace MyGame
                 pictureBox37,
                 pictureBox38,
                 pictureBox39,
-                pictureBox40 
+                pictureBox40
             };
-            gameHandler = new GameHandler(PictureBoxesHard, Level.Hard);
+            gameHandler = new GameHandler(this, PictureBoxesHard, Level.Hard);
             gameHandler.SetPairs();
             gameHandler.ShowAllCards();
             TimerHard.Start();
@@ -75,23 +69,10 @@ namespace MyGame
             gameHandler.FillBoxesWithCardBacks();
             TimerHard.Stop();
         }
+
         private void pictureBoxes_Click(object sender, EventArgs e)
         {
-            bool hasWon = false;
-            Task task = new Task(() =>
-            {
-                hasWon = gameHandler.HandlePictureBoxClick((PictureBox)sender);
-                if (hasWon)
-                {
-                    EndGame();
-                }
-            });
-            task.Start();
-        }
-        private void EndGame()
-        {
-            MessageBox.Show("You have won!");
-            this.Close();
+            gameHandler.HandlePictureboxClick((PictureBox)sender);
         }
     }
 }

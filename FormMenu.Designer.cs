@@ -36,7 +36,7 @@
             // comboBoxLevels
             // 
             this.comboBoxLevels.FormattingEnabled = true;
-            this.comboBoxLevels.Location = new System.Drawing.Point(15, 56);
+            this.comboBoxLevels.Location = new System.Drawing.Point(103, 85);
             this.comboBoxLevels.Name = "comboBoxLevels";
             this.comboBoxLevels.Size = new System.Drawing.Size(121, 21);
             this.comboBoxLevels.TabIndex = 0;
@@ -44,7 +44,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 26);
+            this.label1.Location = new System.Drawing.Point(100, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 13);
             this.label1.TabIndex = 1;
@@ -52,7 +52,7 @@
             // 
             // buttonStart
             // 
-            this.buttonStart.Location = new System.Drawing.Point(15, 104);
+            this.buttonStart.Location = new System.Drawing.Point(103, 139);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(106, 63);
             this.buttonStart.TabIndex = 2;
@@ -64,13 +64,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(183, 214);
+            this.ClientSize = new System.Drawing.Size(330, 214);
             this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxLevels);
             this.Name = "FormMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormMenu";
+            this.Text = "Find pair game";
             this.ResumeLayout(false);
             this.PerformLayout();
 

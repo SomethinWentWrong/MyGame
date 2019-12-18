@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MyGame
 {
     public class GameHandler
     {
-        public GameHandler(List<PictureBox> pictureBoxes, Level level)
+        public GameHandler(Form gameForm, List<PictureBox> pictureBoxes, Level level)
         {
+            this.GameForm = gameForm;
             this.PictureBoxes = pictureBoxes;
             countOpenedPictureboxes = PictureBoxes.Count;
             switch (level)
@@ -31,25 +30,37 @@ namespace MyGame
                         Pictures = CardFactory.CardFactory.GetCards(20);
                         break;
                     }
-                default:  throw new Exception("Error!");
+                default: throw new Exception("Error!");
             }
             CurrentGameState = GameState.AllCardsClosed;
         }
+
+        public Form GameForm { get; }
+
         Random r = new Random();
+
         int pictureIndexToCompare;
         int indexRemovedPicturebox;
         int countOpenedPictureboxes;
+
         public List<Bitmap> Pictures { get; set; }
+
         public Dictionary<int, int> CardMap { get; set; }
+
         public List<PictureBox> PictureBoxes { get; set; }
+
         private GameState CurrentGameState { get; set; }
+
         public void FillBoxesWithCardBacks()
         {
+            this.CurrentGameState = GameState.HandlerBlocked;
             foreach (PictureBox x in PictureBoxes)
             {
                 x.BackgroundImage = CardFactory.CardFactory.GetCardBack();
             }
+            this.CurrentGameState = GameState.AllCardsClosed;
         }
+
         public void SetPairs()
         {
             this.CardMap = new Dictionary<int, int>();
@@ -75,7 +86,25 @@ namespace MyGame
                 PictureBoxes[i].BackgroundImage = Pictures[CardMap[i]];
             }
         }
-        public bool HandlePictureBoxClick(PictureBox clickedPicturebox)
+
+        public void HandlePictureboxClick(PictureBox clickedPictureBox)
+        {
+            bool hasWon = false;
+            if (!this.GameForm.InvokeRequired)
+            {
+                hasWon = this.ApplyActionByClick(clickedPictureBox);
+                if (hasWon)
+                {
+                    EndGame();
+                }
+            }
+            else
+            {
+                this.GameForm.Invoke(new Action<PictureBox>(HandlePictureboxClick), clickedPictureBox);
+            }
+        }
+
+        private bool ApplyActionByClick(PictureBox clickedPicturebox)
         {
             switch (CurrentGameState)
             {
@@ -94,6 +123,7 @@ namespace MyGame
                 default: throw new Exception("Wrong game state!");
             }
         }
+
         private bool OpenCard(PictureBox clickedPicturebox)
         {
             CurrentGameState = GameState.HandlerBlocked;
@@ -106,6 +136,7 @@ namespace MyGame
                     break;
                 }
             }
+
             if (clickedPictureBoxIndex == -1)
             {
                 return false;
@@ -117,7 +148,8 @@ namespace MyGame
             CurrentGameState = GameState.OneCardOpen;
             return false;
         }
-        private bool OpenTwoAndCompare(PictureBox clickedPicturebox) 
+
+        private bool OpenTwoAndCompare(PictureBox clickedPicturebox)
         {
             CurrentGameState = GameState.HandlerBlocked;
             int clickedPictureBoxIndex = -1;
@@ -130,10 +162,12 @@ namespace MyGame
                     break;
                 }
             }
+
             if (clickedPictureBoxIndex == -1)
             {
                 return false;
             }
+
             PictureBoxes[clickedPictureBoxIndex].BackgroundImage = Pictures[CardMap[clickedPictureBoxIndex]];
             Task.Delay(1000).Wait();
             if (pictureIndexToCompare == CardMap[clickedPictureBoxIndex])
@@ -141,7 +175,7 @@ namespace MyGame
                 PictureBoxes[clickedPictureBoxIndex].Visible = false;
                 PictureBoxes[indexRemovedPicturebox].Visible = false;
                 countOpenedPictureboxes = countOpenedPictureboxes - 2;
-                if(countOpenedPictureboxes == 0)
+                if (countOpenedPictureboxes == 0)
                 {
                     return true;
                 }
@@ -154,12 +188,19 @@ namespace MyGame
             CurrentGameState = GameState.AllCardsClosed;
             return false;
         }
+
         private void EnableAllPictureBoxes()
         {
             foreach (PictureBox picturebox in PictureBoxes)
             {
                 picturebox.Enabled = true;
             }
+        }
+
+        private void EndGame()
+        {
+            MessageBox.Show("You have won!");
+            this.GameForm.Close();
         }
     }
 }
